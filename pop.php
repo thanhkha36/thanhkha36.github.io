@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Iframe</title>
+</head>
+<body>
+
+<button>Button</button>
+
+<script type="text/javascript">
+    document.querySelector('button').onclick = function () {
+        // parent.postMessage("message to be sent", "http://the-website-that-will-receive-the-msg.com")
+        //parent.postMessage("myevent", "*")
+        setCookie('np', 'Default');
+        console.log('Check: ', window.history.length);
+        let msg = {budid: 'udid', endpoint: 123, np: 'Permission'};
+        window.top.postMessage(msg, '*');
+        window.opener.postMessage(msg, "*");
+    };
+    //setInterval(function () {
+
+    //}, 1000);
+    function setCookie(cname, cvalue) {
+        var d = new Date();
+        d.setTime(d.getTime() + (1825 * 24 * 60 * 60 * 1000));
+        var expires = "expires=" + d;
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+</script>
+
+</body>
+</html>

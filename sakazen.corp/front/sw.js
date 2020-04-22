@@ -1,1 +1,0 @@
-importScripts('https://www.browserpush.net/assets/sw.js');
